@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytest-playwright-lab"
+version = "0.1.0"
+description = "面向求职作品集的 Python API 与 Web 自动化测试练习"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28,<0.29",
+    "pydantic>=2.12,<3",
+    "pytest>=8.4,<9",
+    "pytest-html>=4.1,<5",
+    "pytest-playwright>=0.7,<1",
+    "python-dotenv>=1.1,<2",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.12,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "api: tests against the public JSONPlaceholder API",
+    "ui: browser tests against the public SauceDemo site",
+    "smoke: critical path checks suitable for pull requests",
+    "regression: broader functional coverage",
+    "external: tests that require a network connection",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = [".venv", "test-results", "html-report"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
