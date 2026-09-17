@@ -7,6 +7,8 @@ __pycache__/
 html-report/
 test-results/
 playwright-report/
+*.egg-info/
+debug.log
 .coverage
 coverage.xml
 

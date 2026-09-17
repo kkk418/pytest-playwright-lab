@@ -16,5 +16,5 @@ class LoginPage(BasePage):
         self.login_button.click()
 
     def expect_error(self, message: str) -> None:
-        expect(self.page.get_by_test_id("error")).to_contain_text(message)
+        expect(self.page.get_by_role("alert")).to_contain_text(message)
 
